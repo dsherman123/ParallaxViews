@@ -13,11 +13,11 @@
 
     :root{
       --bg:#ffffff;
-      --ink:#0f172a;          /* near-black */
-      --muted:#475569;        /* slate */
-      --line:#e2e8f0;         /* light divider */
-      --accent:#0ea5e9;       /* cyan-blue */
-      --card:#f8fafc;         /* very light slate */
+      --ink:#0f172a;
+      --muted:#475569;
+      --line:#e2e8f0;
+      --accent:#0ea5e9;
+      --card:#f8fafc;
       --radius:18px;
       --shadow:0 10px 30px rgba(2,6,23,.08);
     }
@@ -49,8 +49,6 @@
     .brand{display:flex; align-items:center; gap:14px; text-decoration:none; color:inherit}
     .brand img{height:34px; width:auto; display:block; image-rendering:auto;}
     .brand .wordmark{font-weight:700; letter-spacing:.2px}
-
-    /* Tagline (header + footer) */
     .brand .tagline,
     footer .tagline{
       display:block;
@@ -60,7 +58,6 @@
       letter-spacing:.3px;
       margin-top:2px;
     }
-
     .nav a.link{
       color:var(--ink); text-decoration:none; font-weight:600; font-size:14.5px;
       padding:8px 10px; border-radius:10px;
@@ -124,76 +121,51 @@
     #about .about-wrap h2,
     #about .about-wrap h3{color:var(--muted); font-weight:700; margin:16px 0 8px; line-height:1.3}
 
-    /* Parallax Thinking framework block (subtle) */
+    /* Parallax Thinking block (grid) */
     .pt-wrap{
-      background:#fff;           /* blend with body */
-      border:none;               /* no full border */
-      border-top:1px solid var(--line);  /* faint separator only */
-      border-radius:0;           /* no rounding */
-      padding:16px 0 0;          /* space above content */
-      margin:24px auto 0;        /* breathing room + center */
-      max-width:820px;           /* narrower than text width */
+      background:#fff;
+      border-top:1px solid var(--line);
+      padding:16px 0 0;
+      margin:24px auto 0;
+      max-width:100%;
       box-shadow:none;
     }
     .pt-title{
       font-size:16px;
       font-weight:700;
-      margin:0 0 10px;
+      margin:0 0 16px;
       color:var(--ink);
       letter-spacing:.3px;
-      text-transform:none;
     }
-    .pt-head{
+    .pt-grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:14px;
+      margin-top:12px;
+    }
+    @media (min-width: 720px){
+      .pt-grid{ grid-template-columns:repeat(2, 1fr); }
+    }
+    @media (min-width: 1100px){
+      .pt-grid{ grid-template-columns:repeat(3, 1fr); }
+    }
+    .pt-item{
+      padding:10px 12px;
+      border-radius:10px;
+      background:#fff;
+      border:1px solid var(--line);
+    }
+    .pt-item .pt-head{
+      margin:0 0 6px;
       font-size:14.5px;
-      font-weight:600;
       color:var(--muted);
-      margin:14px 0 6px;
     }
-    .pt-list{
-      margin:0 0 10px 18px;
-      padding:0;
-      list-style:disc;
-      font-size:14px;
+    .pt-item .pt-list{
+      margin:0 0 0 18px;
       line-height:1.45;
+      font-size:14px;
     }
-    .pt-list li{margin:3px 0}
 
-    /* Grid layout for Parallax Thinking items */
-.pt-grid{
-  display:grid;
-  grid-template-columns:1fr;   /* mobile: 1 column */
-  gap:14px;                    /* space between items */
-  margin-top:12px;
-}
-@media (min-width: 720px){
-  .pt-grid{ grid-template-columns:repeat(2, 1fr); }   /* tablet: 2 cols */
-}
-@media (min-width: 1100px){
-  .pt-grid{ grid-template-columns:repeat(3, 1fr); }   /* desktop: 3 cols */
-}
-
-/* Each item stays subtle */
-.pt-item{
-  padding:10px 12px;
-  border-radius:10px;
-  background:#fff;             /* blends in */
-  border:1px solid var(--line);/* very light separation */
-}
-
-/* Tighten the item heading a touch */
-.pt-item .pt-head{
-  margin:0 0 6px;
-  font-size:14.5px;
-  color:var(--muted);
-}
-
-/* Lists inside items */
-.pt-item .pt-list{
-  margin:0 0 0 18px;
-  line-height:1.45;
-  font-size:14px;
-}
-    
     /* Footer */
     footer{
       border-top:1px solid var(--line); background:#fcfcfd; color:#64748b;
@@ -211,7 +183,7 @@
       .grid.cards{grid-template-columns:1fr}
       .brand img{height:30px}
       .brand .wordmark{font-size:16px}
-      .pt-wrap{max-width:100%; padding-top:14px}
+      .pt-grid{grid-template-columns:1fr}
     }
   </style>
 </head>
@@ -311,69 +283,80 @@
 
       <div class="pt-wrap">
         <h3 class="pt-title">Parallax Thinking — Analysis &amp; Considerations</h3>
-
-        <h4 class="pt-head">1. Founder’s Perspective</h4>
-        <ul class="pt-list">
-          <li>Vision, values, and personal goals</li>
-          <li>Risk tolerance and leadership style</li>
-          <li>Strengths and blind spots</li>
-        </ul>
-
-        <h4 class="pt-head">2. Customer Perspective</h4>
-        <ul class="pt-list">
-          <li>Needs, pain points, and desires</li>
-          <li>Emotional and rational buying triggers</li>
-          <li>User experience across touchpoints</li>
-        </ul>
-
-        <h4 class="pt-head">3. Market &amp; Competitor Perspective</h4>
-        <ul class="pt-list">
-          <li>Industry trends and disruptions</li>
-          <li>Competitive positioning and differentiation</li>
-          <li>Market gaps and underserved segments</li>
-        </ul>
-
-        <h4 class="pt-head">4. Financial Perspective</h4>
-        <ul class="pt-list">
-          <li>Revenue models and pricing strategies</li>
-          <li>Cash flow, burn rate, and funding needs</li>
-          <li>Investor expectations and ROI</li>
-        </ul>
-
-        <h4 class="pt-head">5. Operational Perspective</h4>
-        <ul class="pt-list">
-          <li>Scalability of systems and processes</li>
-          <li>Supply chain and resource management</li>
-          <li>Team structure and productivity</li>
-        </ul>
-
-        <h4 class="pt-head">6. Team &amp; Culture Perspective</h4>
-        <ul class="pt-list">
-          <li>Hiring strategy and talent development</li>
-          <li>Internal communication and collaboration</li>
-          <li>Company culture and values alignment</li>
-        </ul>
-
-        <h4 class="pt-head">7. Strategic Perspective</h4>
-        <ul class="pt-list">
-          <li>Short-term vs. long-term trade-offs</li>
-          <li>Strategic partnerships and alliances</li>
-          <li>Exit strategies and growth pathways</li>
-        </ul>
-
-        <h4 class="pt-head">8. Societal &amp; Ethical Perspective</h4>
-        <ul class="pt-list">
-          <li>Social impact and sustainability</li>
-          <li>Ethical implications of business decisions</li>
-          <li>Regulatory and legal compliance</li>
-        </ul>
-
-        <h4 class="pt-head">9. Contrarian or “Devil’s Advocate” View</h4>
-        <ul class="pt-list">
-          <li>What if the core assumptions are wrong?</li>
-          <li>What would a critic or competitor say?</li>
-          <li>What happens if the market shifts suddenly?</li>
-        </ul>
+        <div class="pt-grid">
+          <div class="pt-item">
+            <h4 class="pt-head">1. Founder’s Perspective</h4>
+            <ul class="pt-list">
+              <li>Vision, values, and personal goals</li>
+              <li>Risk tolerance and leadership style</li>
+              <li>Strengths and blind spots</li>
+            </ul>
+          </div>
+          <div class="pt-item">
+            <h4 class="pt-head">2. Customer Perspective</h4>
+            <ul class="pt-list">
+              <li>Needs, pain points, and desires</li>
+              <li>Emotional and rational buying triggers</li>
+              <li>User experience across touchpoints</li>
+            </ul>
+          </div>
+          <div class="pt-item">
+            <h4 class="pt-head">3. Market &amp; Competitor Perspective</h4>
+            <ul class="pt-list">
+              <li>Industry trends and disruptions</li>
+              <li>Competitive positioning and differentiation</li>
+              <li>Market gaps and underserved segments</li>
+            </ul>
+          </div>
+          <div class="pt-item">
+            <h4 class="pt-head">4. Financial Perspective</h4>
+            <ul class="pt-list">
+              <li>Revenue models and pricing strategies</li>
+              <li>Cash flow, burn rate, and funding needs</li>
+              <li>Investor expectations and ROI</li>
+            </ul>
+          </div>
+          <div class="pt-item">
+            <h4 class="pt-head">5. Operational Perspective</h4>
+            <ul class="pt-list">
+              <li>Scalability of systems and processes</li>
+              <li>Supply chain and resource management</li>
+              <li>Team structure and productivity</li>
+            </ul>
+          </div>
+          <div class="pt-item">
+            <h4 class="pt-head">6. Team &amp; Culture Perspective</h4>
+            <ul class="pt-list">
+              <li>Hiring strategy and talent development</li>
+              <li>Internal communication and collaboration</li>
+              <li>Company culture and values alignment</li>
+            </ul>
+          </div>
+          <div class="pt-item">
+            <h4 class="pt-head">7. Strategic Perspective</h4>
+            <ul class="pt-list">
+              <li>Short-term vs. long-term trade-offs</li>
+              <li>Strategic partnerships and alliances</li>
+              <li>Exit strategies and growth pathways</li>
+            </ul>
+          </div>
+          <div class="pt-item">
+            <h4 class="pt-head">8. Societal &amp; Ethical Perspective</h4>
+            <ul class="pt-list">
+              <li>Social impact and sustainability</li>
+              <li>Ethical implications of business decisions</li>
+              <li>Regulatory and legal compliance</li>
+            </ul>
+          </div>
+          <div class="pt-item">
+            <h4 class="pt-head">9. Contrarian or “Devil’s Advocate” View</h4>
+            <ul class="pt-list">
+              <li>What if the core assumptions are wrong?</li>
+              <li>What would a critic or competitor say?</li>
+              <li>What happens if the market shifts suddenly?</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -383,18 +366,15 @@
     <div class="container">
       <h2 class="section-title">Services</h2>
       <p class="lead">Engagements are bespoke and outcome-oriented. Typical tracks include:</p>
-
       <div class="grid cards" role="list">
         <article class="card" role="listitem">
           <h4>Startup & GTM Strategy</h4>
           <p>Market mapping, opportunity sizing, positioning, and narrative—grounded in data and customer discovery.</p>
         </article>
-
         <article class="card" role="listitem">
           <h4>Product & UX Advisory</h4>
           <p>From MVP scoping to experience reviews and qualitative research to uncover friction and lift adoption.</p>
         </article>
-
         <article class="card" role="listitem">
           <h4>Media & Content</h4>
           <p>Short-form and long-form concepts, scripts, and production guidance aligned to brand strategy.</p>
