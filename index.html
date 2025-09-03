@@ -101,9 +101,11 @@ footer .tagline{
   padding:18px; box-shadow:var(--shadow)
 }
 .hero-card h3{margin:0 0 6px}
-.hero-logo{
-  width:100%; height:120px; border-radius:14px; background:#fff; border:1px dashed var(--line);
-  display:flex; align-items:center; justify-content:center; margin:8px 0 0;
+.hero-logo img{
+  max-height:100%;
+  max-width:100%;
+  height:auto;  /* remove the fixed 48px */
+  object-fit:contain;
 }
 .hero-logo img{height:48px; width:auto}
 
@@ -207,7 +209,8 @@ footer .tagline{
           <li>Explore intersections of culture, philosophy, media, and society</li>
         </ul>
         <div class="hero-logo">
-          <img src="PVX.gif" alt="Parallax Views logo" />
+          <img src="PVX.gif" alt="Parallax Views logo" loading="lazy" />
+
         </div>
       </aside>
     </div>
