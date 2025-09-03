@@ -9,9 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
-    html {
-      scroll-behavior: smooth; /* smooth scrolling for modern browsers */
-    }
+    html { scroll-behavior: smooth; }
 
     :root{
       --bg:#ffffff;
@@ -36,84 +34,76 @@
       -moz-osx-font-smoothing:grayscale;
     }
 
-   /* Header / Nav */
-.site-header{
-  position:sticky; top:0; z-index:50;
-  background:rgba(255,255,255,.9);
-  backdrop-filter:saturate(140%) blur(6px);
-  border-bottom:1px solid var(--line);
-}
-.container{max-width:1120px; margin:0 auto; padding:0 20px}
-.nav{
-  display:flex; align-items:center; justify-content:space-between;
-  padding:14px 0;
-}
-.brand{display:flex; align-items:center; gap:14px; text-decoration:none; color:inherit}
-.brand img{
-  height:34px; width:auto; display:block; image-rendering:auto;
-}
-.brand .wordmark{font-weight:700; letter-spacing:.2px}
+    /* Header / Nav */
+    .site-header{
+      position:sticky; top:0; z-index:50;
+      background:rgba(255,255,255,.9);
+      backdrop-filter:saturate(140%) blur(6px);
+      border-bottom:1px solid var(--line);
+    }
+    .container{max-width:1120px; margin:0 auto; padding:0 20px}
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+    }
+    .brand{display:flex; align-items:center; gap:14px; text-decoration:none; color:inherit}
+    .brand img{height:34px; width:auto; display:block; image-rendering:auto;}
+    .brand .wordmark{font-weight:700; letter-spacing:.2px}
 
-/* Tagline (header + footer) */
-.brand .tagline,
-footer .tagline{
-  display:block;
-  font-size:13.5px;
-  color:var(--muted);
-  font-style:italic;
-  letter-spacing:.3px;
-  margin-top:2px;
-}
+    /* Tagline (header + footer) */
+    .brand .tagline,
+    footer .tagline{
+      display:block;
+      font-size:13.5px;
+      color:var(--muted);
+      font-style:italic;
+      letter-spacing:.3px;
+      margin-top:2px;
+    }
 
-/* (You can remove this now if you're not using <small> in the header) */
-/* .brand small{display:block; font-size:12px; color:var(--muted); letter-spacing:.3px} */
+    .nav a.link{
+      color:var(--ink); text-decoration:none; font-weight:600; font-size:14.5px;
+      padding:8px 10px; border-radius:10px;
+    }
+    .nav a.link:hover{background:#eef2f7}
 
-.nav a.link{
-  color:var(--ink); text-decoration:none; font-weight:600; font-size:14.5px;
-  padding:8px 10px; border-radius:10px;
-}
-.nav a.link:hover{background:#eef2f7}
-
-/* Hero */
-.hero{
-  padding:72px 0 56px;
-  border-bottom:1px solid var(--line);
-  background:
-    radial-gradient(1200px 400px at 20% -10%, #e0f2fe 0, transparent 60%),
-    radial-gradient(1200px 400px at 120% 10%, #f0f9ff 0, transparent 65%),
-    #ffffff;
-}
-.hero-grid{display:grid; grid-template-columns:1.2fr .8fr; gap:36px}
-.h-eyebrow{color:var(--accent); font-weight:700; letter-spacing:.4px; text-transform:uppercase; font-size:12px}
-.h-title{font-size:clamp(28px,3.5vw,40px); line-height:1.15; margin:.35rem 0 1rem; font-weight:800; letter-spacing:.2px}
-.h-sub{color:var(--muted); font-size:18px; max-width:62ch}
-.cta-row{margin-top:22px; display:flex; gap:12px; flex-wrap:wrap}
-.btn{
-  display:inline-flex; align-items:center; gap:8px;
-  padding:12px 16px; border-radius:12px; font-weight:700; text-decoration:none;
-  border:1px solid #cbd5e1; color:var(--ink); background:#fff;
-  box-shadow:0 2px 0 rgba(15,23,42,.04);
-}
-.btn.primary{background:var(--ink); color:#fff; border-color:var(--ink)}
-.btn:hover{transform:translateY(-1px)}
-.hero-card{
-  background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
-  padding:18px; box-shadow:var(--shadow)
-}
-.hero-card h3{margin:0 0 6px}
-.hero-logo img{
-  max-height:100%;
-  max-width:100%;
-  height:auto;  /* remove the fixed 48px */
-  object-fit:contain;
-}
-.hero-logo img {
-  max-height: 100%;   /* up to 120px, matches .hero-logo height */
-  max-width: 100%;
-  height: auto;
-  object-fit: contain;
-}
-
+    /* Hero */
+    .hero{
+      padding:72px 0 56px;
+      border-bottom:1px solid var(--line);
+      background:
+        radial-gradient(1200px 400px at 20% -10%, #e0f2fe 0, transparent 60%),
+        radial-gradient(1200px 400px at 120% 10%, #f0f9ff 0, transparent 65%),
+        #ffffff;
+    }
+    .hero-grid{display:grid; grid-template-columns:1.2fr .8fr; gap:36px}
+    .h-eyebrow{color:var(--accent); font-weight:700; letter-spacing:.4px; text-transform:uppercase; font-size:12px}
+    .h-title{font-size:clamp(28px,3.5vw,40px); line-height:1.15; margin:.35rem 0 1rem; font-weight:800; letter-spacing:.2px}
+    .h-sub{color:var(--muted); font-size:18px; max-width:62ch}
+    .cta-row{margin-top:22px; display:flex; gap:12px; flex-wrap:wrap}
+    .btn{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:12px 16px; border-radius:12px; font-weight:700; text-decoration:none;
+      border:1px solid #cbd5e1; color:var(--ink); background:#fff;
+      box-shadow:0 2px 0 rgba(15,23,42,.04);
+    }
+    .btn.primary{background:var(--ink); color:#fff; border-color:var(--ink)}
+    .btn:hover{transform:translateY(-1px)}
+    .hero-card{
+      background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+      padding:18px; box-shadow:var(--shadow)
+    }
+    .hero-card h3{margin:0 0 6px}
+    .hero-logo{
+      width:100%; height:120px; border-radius:14px; background:#fff; border:1px dashed var(--line);
+      display:flex; align-items:center; justify-content:center; margin:8px 0 0;
+    }
+    .hero-logo img{
+      max-height:100%;
+      max-width:100%;
+      height:auto;
+      object-fit:contain;
+    }
 
     /* Sections */
     section{padding:56px 0}
@@ -134,43 +124,40 @@ footer .tagline{
     #about .about-wrap h2,
     #about .about-wrap h3{color:var(--muted); font-weight:700; margin:16px 0 8px; line-height:1.3}
 
-    /* Parallax Thinking framework block */
-.pt-wrap {
-  background: var(--card);         /* light background for contrast */
-  border: 1px solid var(--line);   /* subtle border */
-  border-radius: var(--radius);    /* same rounded corners as cards */
-  padding: 24px;
-  margin-top: 32px;
-  box-shadow: var(--shadow);       /* same soft shadow as cards */
-}
+    /* Parallax Thinking framework block (softer) */
+    .pt-wrap{
+      background:#fff;
+      border:1px solid var(--line);
+      border-left:3px solid var(--accent);
+      border-radius:12px;
+      padding:18px;
+      margin:24px auto 0;
+      box-shadow:none;
+      max-width:820px;
+    }
+    .pt-title{
+      font-size:16px;
+      font-weight:700;
+      margin:0 0 10px;
+      color:var(--ink);
+      letter-spacing:.3px;
+      text-transform:none;
+    }
+    .pt-head{
+      font-size:14.5px;
+      font-weight:600;
+      color:var(--muted);
+      margin:14px 0 6px;
+    }
+    .pt-list{
+      margin:0 0 10px 18px;
+      padding:0;
+      list-style:disc;
+      font-size:14px;
+      line-height:1.45;
+    }
+    .pt-list li{margin:3px 0}
 
-.pt-title {
-  font-size: 18px;
-  font-weight: 700;
-  margin-bottom: 16px;
-  color: var(--ink);
-  text-transform: uppercase;
-  letter-spacing: .5px;
-}
-
-.pt-head {
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--accent);            /* matches your cyan-blue highlight */
-  margin: 18px 0 6px;
-}
-
-.pt-list {
-  margin: 0 0 14px 20px;
-  padding: 0;
-  list-style: disc;
-  font-size: 14px;
-  line-height: 1.5;
-}
-.pt-list li {
-  margin: 4px 0;
-}
-    
     /* Footer */
     footer{
       border-top:1px solid var(--line); background:#fcfcfd; color:#64748b;
@@ -188,31 +175,32 @@ footer .tagline{
       .grid.cards{grid-template-columns:1fr}
       .brand img{height:30px}
       .brand .wordmark{font-size:16px}
+      .pt-wrap{max-width:100%; padding:16px}
     }
   </style>
 </head>
 <body>
 
- <!-- Header -->
-<header class="site-header">
-  <div class="container">
-    <div class="nav">
-      <a class="brand" href="#top" aria-label="Parallax Views, LLC">
-        <img src="PVX.gif" alt="Parallax Views logo: RGB parallax lines" />
-        <div>
-          <div class="wordmark">Parallax Views, LLC</div>
-          <div class="tagline">Parallax Thinking: Multiple Perspectives. Singular Insight.™</div>
-        </div>
-      </a>
-      <nav>
-        <a class="link" href="#services">Services</a>
-        <a class="link" href="#about">About</a>
-        <a class="link" href="#work">Selected Work</a>
-        <a class="link" href="#contact">Contact</a>
-      </nav>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <div class="nav">
+        <a class="brand" href="#top" aria-label="Parallax Views, LLC">
+          <img src="PVX.gif" alt="Parallax Views logo: RGB parallax lines" />
+          <div>
+            <div class="wordmark">Parallax Views, LLC</div>
+            <div class="tagline">Parallax Thinking: Multiple Perspectives. Singular Insight.™</div>
+          </div>
+        </a>
+        <nav>
+          <a class="link" href="#services">Services</a>
+          <a class="link" href="#about">About</a>
+          <a class="link" href="#work">Selected Work</a>
+          <a class="link" href="#contact">Contact</a>
+        </nav>
+      </div>
     </div>
-  </div>
-</header>
+  </header>
 
   <!-- Hero -->
   <section id="top" class="hero">
@@ -246,7 +234,6 @@ footer .tagline{
         </ul>
         <div class="hero-logo">
           <img src="PVX.gif" alt="Parallax Views logo" loading="lazy" />
-
         </div>
       </aside>
     </div>
@@ -285,73 +272,74 @@ footer .tagline{
         debut novel, <em><a href="https://www.aquestionofbalance.com" target="_blank" rel="noopener">A Question of Balance</a></em> 
         —a psychological-philosophical murder mystery.
       </p>
+
+      <div class="pt-wrap">
+        <h3 class="pt-title">Parallax Thinking — Analysis &amp; Considerations</h3>
+
+        <h4 class="pt-head">1. Founder’s Perspective</h4>
+        <ul class="pt-list">
+          <li>Vision, values, and personal goals</li>
+          <li>Risk tolerance and leadership style</li>
+          <li>Strengths and blind spots</li>
+        </ul>
+
+        <h4 class="pt-head">2. Customer Perspective</h4>
+        <ul class="pt-list">
+          <li>Needs, pain points, and desires</li>
+          <li>Emotional and rational buying triggers</li>
+          <li>User experience across touchpoints</li>
+        </ul>
+
+        <h4 class="pt-head">3. Market &amp; Competitor Perspective</h4>
+        <ul class="pt-list">
+          <li>Industry trends and disruptions</li>
+          <li>Competitive positioning and differentiation</li>
+          <li>Market gaps and underserved segments</li>
+        </ul>
+
+        <h4 class="pt-head">4. Financial Perspective</h4>
+        <ul class="pt-list">
+          <li>Revenue models and pricing strategies</li>
+          <li>Cash flow, burn rate, and funding needs</li>
+          <li>Investor expectations and ROI</li>
+        </ul>
+
+        <h4 class="pt-head">5. Operational Perspective</h4>
+        <ul class="pt-list">
+          <li>Scalability of systems and processes</li>
+          <li>Supply chain and resource management</li>
+          <li>Team structure and productivity</li>
+        </ul>
+
+        <h4 class="pt-head">6. Team &amp; Culture Perspective</h4>
+        <ul class="pt-list">
+          <li>Hiring strategy and talent development</li>
+          <li>Internal communication and collaboration</li>
+          <li>Company culture and values alignment</li>
+        </ul>
+
+        <h4 class="pt-head">7. Strategic Perspective</h4>
+        <ul class="pt-list">
+          <li>Short-term vs. long-term trade-offs</li>
+          <li>Strategic partnerships and alliances</li>
+          <li>Exit strategies and growth pathways</li>
+        </ul>
+
+        <h4 class="pt-head">8. Societal &amp; Ethical Perspective</h4>
+        <ul class="pt-list">
+          <li>Social impact and sustainability</li>
+          <li>Ethical implications of business decisions</li>
+          <li>Regulatory and legal compliance</li>
+        </ul>
+
+        <h4 class="pt-head">9. Contrarian or “Devil’s Advocate” View</h4>
+        <ul class="pt-list">
+          <li>What if the core assumptions are wrong?</li>
+          <li>What would a critic or competitor say?</li>
+          <li>What happens if the market shifts suddenly?</li>
+        </ul>
+      </div>
     </div>
-<div class="pt-wrap">
-  <h3 class="pt-title">Parallax Thinking — Analysis &amp; Considerations</h3>
-
-  <h4 class="pt-head">1. Founder’s Perspective</h4>
-  <ul class="pt-list">
-    <li>Vision, values, and personal goals</li>
-    <li>Risk tolerance and leadership style</li>
-    <li>Strengths and blind spots</li>
-  </ul>
-
-  <h4 class="pt-head">2. Customer Perspective</h4>
-  <ul class="pt-list">
-    <li>Needs, pain points, and desires</li>
-    <li>Emotional and rational buying triggers</li>
-    <li>User experience across touchpoints</li>
-  </ul>
-
-  <h4 class="pt-head">3. Market &amp; Competitor Perspective</h4>
-  <ul class="pt-list">
-    <li>Industry trends and disruptions</li>
-    <li>Competitive positioning and differentiation</li>
-    <li>Market gaps and underserved segments</li>
-  </ul>
-
-  <h4 class="pt-head">4. Financial Perspective</h4>
-  <ul class="pt-list">
-    <li>Revenue models and pricing strategies</li>
-    <li>Cash flow, burn rate, and funding needs</li>
-    <li>Investor expectations and ROI</li>
-  </ul>
-
-  <h4 class="pt-head">5. Operational Perspective</h4>
-  <ul class="pt-list">
-    <li>Scalability of systems and processes</li>
-    <li>Supply chain and resource management</li>
-    <li>Team structure and productivity</li>
-  </ul>
-
-  <h4 class="pt-head">6. Team &amp; Culture Perspective</h4>
-  <ul class="pt-list">
-    <li>Hiring strategy and talent development</li>
-    <li>Internal communication and collaboration</li>
-    <li>Company culture and values alignment</li>
-  </ul>
-
-  <h4 class="pt-head">7. Strategic Perspective</h4>
-  <ul class="pt-list">
-    <li>Short-term vs. long-term trade-offs</li>
-    <li>Strategic partnerships and alliances</li>
-    <li>Exit strategies and growth pathways</li>
-  </ul>
-
-  <h4 class="pt-head">8. Societal &amp; Ethical Perspective</h4>
-  <ul class="pt-list">
-    <li>Social impact and sustainability</li>
-    <li>Ethical implications of business decisions</li>
-    <li>Regulatory and legal compliance</li>
-  </ul>
-
-  <h4 class="pt-head">9. Contrarian or “Devil’s Advocate” View</h4>
-  <ul class="pt-list">
-    <li>What if the core assumptions are wrong?</li>
-    <li>What would a critic or competitor say?</li>
-    <li>What happens if the market shifts suddenly?</li>
-  </ul>
-</div>
   </section>
 
   <!-- Services -->
@@ -413,15 +401,15 @@ footer .tagline{
   </section>
 
   <footer>
-  <div class="container">
-    © 2025 Parallax Views, LLC. All rights reserved. • 
-    <span class="tagline">
-      <a href="#about" style="text-decoration:none; color:inherit; font-weight:600;">
-        Parallax Thinking
-      </a>: Multiple Perspectives. Singular Insight.™
-    </span>
-  </div>
-</footer>
+    <div class="container">
+      © 2025 Parallax Views, LLC. All rights reserved. • 
+      <span class="tagline">
+        <a href="#about" style="text-decoration:none; color:inherit; font-weight:600;">
+          Parallax Thinking
+        </a>: Multiple Perspectives. Singular Insight.™
+      </span>
+    </div>
+  </footer>
 
   <!-- Smooth scroll fallback for older browsers -->
   <script>
@@ -439,4 +427,3 @@ footer .tagline{
 
 </body>
 </html>
-
