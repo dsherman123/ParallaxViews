@@ -107,12 +107,11 @@ footer .tagline{
   height:auto;  /* remove the fixed 48px */
   object-fit:contain;
 }
-.hero-logo img{height:48px; width:auto}
-
-/* Optional: make tagline a bit smaller on narrow screens */
-@media (max-width:640px){
-  .brand .tagline,
-  footer .tagline{font-size:12.5px}
+.hero-logo img {
+  max-height: 100%;   /* up to 120px, matches .hero-logo height */
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
 }
 
 
