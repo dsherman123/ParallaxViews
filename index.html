@@ -7,7 +7,12 @@
   <meta name="description" content="Parallax Views, LLC: consulting, product strategy, and media development. Multiple Perspectives. Singular Insight.™" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
+    html {
+      scroll-behavior: smooth; /* smooth scrolling for modern browsers */
+    }
+
     :root{
       --bg:#ffffff;
       --ink:#0f172a;          /* near-black */
@@ -89,7 +94,7 @@
       width:100%; height:120px; border-radius:14px; background:#fff; border:1px dashed var(--line);
       display:flex; align-items:center; justify-content:center; margin:8px 0 0;
     }
-    .hero-logo img{height:80px; width:auto}
+    .hero-logo img{height:48px; width:auto}
 
     /* Sections */
     section{padding:56px 0}
@@ -105,45 +110,10 @@
     .card h4{margin:0 0 6px}
     .card p{margin:0}
 
-    /* ABOUT: muted body + compact Parallax Thinking list */
-    #about .about-wrap{
-      color:var(--muted);
-      font-size:15.5px;
-      line-height:1.55;
-    }
+    /* ABOUT */
+    #about .about-wrap{color:var(--muted); font-size:15.5px; line-height:1.55}
     #about .about-wrap h2,
-    #about .about-wrap h3{
-      color:var(--muted);
-      font-weight:700;
-      margin:16px 0 8px;
-      line-height:1.3;
-    }
-
-    /* Parallax Thinking block */
-    #about .pt-wrap{
-      color:var(--muted);
-    }
-    #about .pt-title{
-      color:var(--muted);
-      font-size:16px;         /* smaller than section title */
-      font-weight:700;
-      letter-spacing:.2px;
-      margin:28px 0 10px;
-    }
-    #about .pt-head{
-      color:var(--muted);
-      font-size:14px;         /* lighter, smaller headers 1–9 */
-      font-weight:700;
-      margin:14px 0 6px;
-    }
-    #about .pt-list{
-      margin:0 0 14px 18px;   /* tighter margins */
-      padding:0;
-      list-style:disc;
-      font-size:14px;         /* smaller bullets */
-      line-height:1.4;        /* tighter line height */
-    }
-    #about .pt-list li{ margin:3px 0; }
+    #about .about-wrap h3{color:var(--muted); font-weight:700; margin:16px 0 8px; line-height:1.3}
 
     /* Footer */
     footer{
@@ -156,9 +126,6 @@
       .hero-grid{grid-template-columns:1fr}
       .grid.cards{grid-template-columns:1fr 1fr}
       #about .about-wrap{font-size:15px}
-      #about .pt-title{font-size:15px}
-      #about .pt-head{font-size:13.5px}
-      #about .pt-list{font-size:13.5px}
     }
     @media (max-width: 640px){
       .nav{flex-wrap:wrap; gap:10px}
@@ -175,7 +142,7 @@
     <div class="container">
       <div class="nav">
         <a class="brand" href="#top" aria-label="Parallax Views, LLC">
-          <img src="PVX.png" alt="Parallax Views logo: RGB parallax lines" />
+          <img src="PVX.gif" alt="Parallax Views logo: RGB parallax lines" />
           <div>
             <div class="wordmark">Parallax Views, LLC</div>
             <small>Multiple Perspectives. Singular Insight.™</small>
@@ -222,9 +189,45 @@
           <li>Explore intersections of culture, philosophy, media, and society</li>
         </ul>
         <div class="hero-logo">
-          <img src="PVX.png" alt="Parallax Views logo" />
+          <img src="PVX.gif" alt="Parallax Views logo" />
         </div>
       </aside>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <div class="container about-wrap">
+      <h2 class="section-title" style="color:var(--muted)">About</h2>
+
+      <h3>About Parallax Views</h3>
+      <p><strong>Parallax Views, LLC</strong> is led by <strong>David S. Sherman, Ph.D.</strong>—entrepreneur, business strategist, educator, 
+        and licensed psychotherapist. With a career spanning technology, media, psychology, and product design, David brings a unique perspective 
+        to strategy and leadership. At the core of his work is <em>parallax thinking</em>—the practice of examining ideas from multiple, often 
+        contrasting viewpoints to uncover blind spots, challenge assumptions, and create deeper insight. This philosophy shapes the mission of 
+        Parallax Views: helping founders and organizations make smarter, faster, evidence-based decisions.
+      </p>
+
+      <h3>Entrepreneurial Journey</h3>
+      <p>In the early 1980s, David was Principal and Co-President of <strong>AIMS Media</strong> with his brothers, where he modernized its 
+        16mm film and filmstrip library into <strong>AIMS Multimedia</strong>, a pioneer in educational technology. Drawing on Pinchot’s 
+        principles of intrapreneuring, he spearheaded the development of <strong>DigitalCurriculum</strong>, the first streaming video-on-demand 
+        service for education, which ultimately served more than 20 million students before being acquired by <strong>Discovery Communications, 
+          Inc.</strong> in 2004.</p>
+
+      <p>After a brief retirement, David co-founded <strong><a href="https://www.criteriacorp.com" target="_blank" rel="noopener">Criteria Corp</a></strong>, 
+        the first SaaS pre-employment assessment platform, where he served as COO until his second retirement in 2024. Under his leadership, 
+        Criteria expanded into a global talent assessment and development platform—delivering validated pre- and post-hire assessments, structured 
+        interviewing solutions, and collaboration tools. Today, Criteria supports more than 4,000 organizations worldwide, with over 60 million 
+        assessments administered in 30 languages across 60+ countries. David continues to serve on its Board of Directors.
+      </p>
+
+      <h3>Beyond Business</h3>
+      <p>Alongside his entrepreneurial work, David remains deeply engaged in psychology and the arts. He is a licensed psychotherapist and 
+        continues to advise startups and young entrepreneurs. In addition, he has dedicated himself to his literary work, most notably his 
+        debut novel, <em><a href="https://www.aquestionofbalance.com" target="_blank" rel="noopener">A Question of Balance</a></em> 
+        —a psychological-philosophical murder mystery.
+      </p>
     </div>
   </section>
 
@@ -249,116 +252,6 @@
           <h4>Media & Content</h4>
           <p>Short-form and long-form concepts, scripts, and production guidance aligned to brand strategy.</p>
         </article>
-      </div>
-    </div>
-  </section>
-
-<!-- About -->
-<section id="about">
-  <div class="container about-wrap">
-    <h2 class="section-title" style="color:var(--muted)">About</h2>
-
-    <h3>About Parallax Views</h3>
-    <p><strong>Parallax Views, LLC</strong> is led by <strong>David S. Sherman, Ph.D.</strong>—entrepreneur, business strategist, educator, 
-      and licensed psychotherapist. With a career spanning technology, media, psychology, and product design, David brings a unique perspective 
-      to strategy and leadership. At the core of his work is <em>parallax thinking</em>—the practice of examining ideas from multiple, often 
-      contrasting viewpoints to uncover blind spots, challenge assumptions, and create deeper insight. This philosophy shapes the mission of 
-      Parallax Views: helping founders and organizations make smarter, faster, evidence-based decisions.
-    </p>
-
-    <h3>Entrepreneurial Journey</h3>
-    <p>In the early 1980s, David was Principal and Co-President of <strong>AIMS Media</strong> with his brothers, where he modernized its 
-      16mm film and filmstrip library into <strong>AIMS Multimedia</strong>, a pioneer in educational technology. Drawing on Pinchot’s 
-      principles of intrapreneuring, he spearheaded the development of <strong>DigitalCurriculum</strong>, the first streaming video-on-demand 
-      service for education, which ultimately served more than 20 million students before being acquired by <strong>Discovery Communications, 
-        Inc.</strong> in 2004.</p>
-
-    <p>After a brief retirement, David co-founded <strong><a href="https://www.criteriacorp.com" target="_blank" rel="noopener">Criteria Corp</a></strong>, 
-      the first SaaS pre-employment assessment platform, where he served as COO until his second retirement in 2024. Under his leadership, 
-      Criteria expanded into a global talent assessment and development platform—delivering validated pre- and post-hire assessments, structured 
-      interviewing solutions, and collaboration tools. Today, Criteria supports more than 4,000 organizations worldwide, with over 60 million 
-      assessments administered in 30 languages across 60+ countries. David continues to serve on its Board of Directors.
-    </p>
-
-    <h3>Beyond Business</h3>
-    <p>Alongside his entrepreneurial work, David remains deeply engaged in psychology and the arts. He is a licensed psychotherapist and 
-      continues to advise startups and young entrepreneurs. In addition, he has dedicated himself to his literary work, most notably his 
-      debut novel, <em><a href="https://www.aquestionofbalance.com" target="_blank" rel="noopener">A Question of Balance</a></em> 
-      —a psychological-philosophical murder mystery.
-    </p>
-
-    <h3>Beyond Business</h3>
-    <p>Alongside his entrepreneurial work, David remains deeply engaged in psychology and the arts. He is a licensed psychotherapist and 
-      continues to advise startups and young entrepreneurs. In addition, he has dedicated himself to his literary work, most notably his 
-      debut novel, <em><a href="https://www.aquestionofbalance.com" target="_blank" rel="noopener">A Question of Balance</a></em> 
-      —a psychological-philosophical murder mystery.
-    </p>
-
-      <div class="pt-wrap">
-        <h3 class="pt-title">Parallax Thinking — Analysis & Considerations</h3>
-
-        <h4 class="pt-head">1. Founder’s Perspective</h4>
-        <ul class="pt-list">
-          <li>Vision, values, and personal goals</li>
-          <li>Risk tolerance and leadership style</li>
-          <li>Strengths and blind spots</li>
-        </ul>
-
-        <h4 class="pt-head">2. Customer Perspective</h4>
-        <ul class="pt-list">
-          <li>Needs, pain points, and desires</li>
-          <li>Emotional and rational buying triggers</li>
-          <li>User experience across touchpoints</li>
-        </ul>
-
-        <h4 class="pt-head">3. Market &amp; Competitor Perspective</h4>
-        <ul class="pt-list">
-          <li>Industry trends and disruptions</li>
-          <li>Competitive positioning and differentiation</li>
-          <li>Market gaps and underserved segments</li>
-        </ul>
-
-        <h4 class="pt-head">4. Financial Perspective</h4>
-        <ul class="pt-list">
-          <li>Revenue models and pricing strategies</li>
-          <li>Cash flow, burn rate, and funding needs</li>
-          <li>Investor expectations and ROI</li>
-        </ul>
-
-        <h4 class="pt-head">5. Operational Perspective</h4>
-        <ul class="pt-list">
-          <li>Scalability of systems and processes</li>
-          <li>Supply chain and resource management</li>
-          <li>Team structure and productivity</li>
-        </ul>
-
-        <h4 class="pt-head">6. Team &amp; Culture Perspective</h4>
-        <ul class="pt-list">
-          <li>Hiring strategy and talent development</li>
-          <li>Internal communication and collaboration</li>
-          <li>Company culture and values alignment</li>
-        </ul>
-
-        <h4 class="pt-head">7. Strategic Perspective</h4>
-        <ul class="pt-list">
-          <li>Short-term vs. long-term trade-offs</li>
-          <li>Strategic partnerships and alliances</li>
-          <li>Exit strategies and growth pathways</li>
-        </ul>
-
-        <h4 class="pt-head">8. Societal &amp; Ethical Perspective</h4>
-        <ul class="pt-list">
-          <li>Social impact and sustainability</li>
-          <li>Ethical implications of business decisions</li>
-          <li>Regulatory and legal compliance</li>
-        </ul>
-
-        <h4 class="pt-head">9. Contrarian or “Devil’s Advocate” View</h4>
-        <ul class="pt-list">
-          <li>What if the core assumptions are wrong?</li>
-          <li>What would a critic or competitor say?</li>
-          <li>What happens if the market shifts suddenly?</li>
-        </ul>
       </div>
     </div>
   </section>
@@ -397,12 +290,27 @@
   </section>
 
   <footer>
-  <div class="container">
-    © 2025 Parallax Views, LLC. All rights reserved. • 
-    <a href="#about" style="text-decoration:none; color:inherit; font-weight:600;">Parallax Thinking</a>: 
-    Multiple Perspectives. Singular Insight.™
-  </div>
-</footer>
+    <div class="container">
+      © 2025 Parallax Views, LLC. All rights reserved. • 
+      <a href="#about" style="text-decoration:none; color:inherit; font-weight:600;">Parallax Thinking</a>: 
+      Multiple Perspectives. Singular Insight.™
+    </div>
+  </footer>
+
+  <!-- Smooth scroll fallback for older browsers -->
+  <script>
+    (function() {
+      if ('scrollBehavior' in document.documentElement.style) return;
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) target.scrollIntoView({ behavior: 'smooth' });
+        });
+      });
+    })();
+  </script>
 
 </body>
 </html>
+
