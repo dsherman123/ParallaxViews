@@ -107,21 +107,39 @@
     .section-title{font-size:26px; margin:0 0 18px}
     .lead{color:var(--muted); max-width:70ch}
 
-    /* Cards / grid */
+    /* Grid + Cards */
     .grid{display:grid; gap:18px}
     .grid.cards{grid-template-columns:repeat(3,1fr)}
     .card{
-      background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow)
+      background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:0; box-shadow:var(--shadow)
     }
-    .card h4{margin:0 0 6px}
-    .card p{margin:0}
+
+    /* Collapsible (details/summary) styled as cards */
+    details.card{overflow:hidden}
+    details.card[open]{box-shadow:0 14px 36px rgba(2,6,23,.10)}
+    summary{
+      list-style:none; cursor:pointer; padding:16px 18px; outline:none;
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+    }
+    summary::-webkit-details-marker{display:none}
+    .sum-title{
+      margin:0; font-weight:700; font-size:16px;
+    }
+    .caret{
+      transition:transform .2s ease;
+      font-size:18px; line-height:1; color:var(--muted);
+    }
+    details[open] .caret{transform:rotate(180deg)}
+    .card-body{padding:0 18px 18px; color:var(--muted); font-size:15px}
+    .card-body p{margin:0 0 10px}
+    .card-body ul{margin:0 0 0 18px; line-height:1.5}
 
     /* ABOUT */
     #about .about-wrap{color:var(--muted); font-size:15.5px; line-height:1.55}
     #about .about-wrap h2,
     #about .about-wrap h3{color:var(--muted); font-weight:700; margin:16px 0 8px; line-height:1.3}
 
-    /* ParallaX Thinking block (grid) */
+    /* ParallaX Thinking block */
     .pt-wrap{
       background:#fff;
       border-top:1px solid var(--line);
@@ -149,22 +167,17 @@
     @media (min-width: 1100px){
       .pt-grid{ grid-template-columns:repeat(3, 1fr); }
     }
-    .pt-item{
-      padding:10px 12px;
-      border-radius:10px;
-      background:#fff;
-      border:1px solid var(--line);
+
+    /* Services subheads */
+    .services-group{margin-top:30px}
+    .services-subhead{
+      font-size:18px;
+      font-weight:800;
+      letter-spacing:.2px;
+      margin:10px 0 8px;
+      color:var(--ink);
     }
-    .pt-item .pt-head{
-      margin:0 0 6px;
-      font-size:14.5px;
-      color:var(--muted);
-    }
-    .pt-item .pt-list{
-      margin:0 0 0 18px;
-      line-height:1.45;
-      font-size:14px;
-    }
+    .services-note{color:var(--muted); font-size:14px; margin-top:-6px}
 
     /* Footer */
     footer{
@@ -204,6 +217,7 @@
           <a class="link" href="#services">Services</a>
           <a class="link" href="#about">About</a>
           <a class="link" href="#work">Selected Work</a>
+          <a class="link" href="#founder">Founder</a>
           <a class="link" href="#contact">Contact</a>
         </nav>
       </div>
@@ -257,12 +271,285 @@
         licensed psychotherapist. With a career spanning technology, media, psychology, and product design, David brings a unique perspective to 
         strategy and leadership.</p>
          
-        <p>At the heart of ParallaX Views is <b><em>ParallaX Thinking</em></b>—the practice of examining challenges from multiple, often contrasting vantage 
+      <p>At the heart of ParallaX Views is <b><em>ParallaX Thinking</em></b>—the practice of examining challenges from multiple, often contrasting vantage 
         points to uncover blind spots, challenge assumptions, and surface deeper insights. This perspective-shifting approach is paired with 
         <b>Divergent Thinking</b>, the process of generating a wide field of possibilities before converging on evidence-based solutions. Together, 
-        they create a dynamic balance: <i>seeing differently and imagining broadly </i>in order to help founders and organizations make smarter, faster, 
+        they create a dynamic balance: <i>seeing differently and imagining broadly</i> in order to help founders and organizations make smarter, faster, 
         and more resilient decisions.
       </p>
+
+      <div class="pt-wrap" aria-label="ParallaX Thinking — Analysis & Considerations">
+        <h3 class="pt-title">ParallaX Thinking — Analysis &amp; Considerations</h3>
+        <div class="pt-grid">
+          <!-- 1 -->
+          <details class="card">
+            <summary><span class="sum-title">1. Founder’s Perspective</span><span class="caret">▾</span></summary>
+            <div class="card-body">
+              <ul>
+                <li>Vision, values, personal goals</li>
+                <li>Risk tolerance & leadership style</li>
+                <li>Strengths & blind spots</li>
+              </ul>
+            </div>
+          </details>
+          <!-- 2 -->
+          <details class="card">
+            <summary><span class="sum-title">2. Customer Perspective</span><span class="caret">▾</span></summary>
+            <div class="card-body">
+              <ul>
+                <li>Needs & pain points</li>
+                <li>Emotional vs. rational triggers</li>
+                <li>Experience across touchpoints</li>
+              </ul>
+            </div>
+          </details>
+          <!-- 3 -->
+          <details class="card">
+            <summary><span class="sum-title">3. Market &amp; Competitor Perspective</span><span class="caret">▾</span></summary>
+            <div class="card-body">
+              <ul>
+                <li>Trends & disruptions</li>
+                <li>Positioning & differentiation</li>
+                <li>Gaps & underserved segments</li>
+              </ul>
+            </div>
+          </details>
+          <!-- 4 -->
+          <details class="card">
+            <summary><span class="sum-title">4. Financial Perspective</span><span class="caret">▾</span></summary>
+            <div class="card-body">
+              <ul>
+                <li>Revenue models & pricing</li>
+                <li>Cash flow, burn, funding</li>
+                <li>Investor expectations & ROI</li>
+              </ul>
+            </div>
+          </details>
+          <!-- 5 -->
+          <details class="card">
+            <summary><span class="sum-title">5. Operational Perspective</span><span class="caret">▾</span></summary>
+            <div class="card-body">
+              <ul>
+                <li>Systems & scalability</li>
+                <li>Supply chain & resources</li>
+                <li>Team structure & productivity</li>
+              </ul>
+            </div>
+          </details>
+          <!-- 6 -->
+          <details class="card">
+            <summary><span class="sum-title">6. Team &amp; Culture Perspective</span><span class="caret">▾</span></summary>
+            <div class="card-body">
+              <ul>
+                <li>Hiring & development</li>
+                <li>Communication & collaboration</li>
+                <li>Values alignment</li>
+              </ul>
+            </div>
+          </details>
+          <!-- 7 -->
+          <details class="card">
+            <summary><span class="sum-title">7. Strategic Perspective</span><span class="caret">▾</span></summary>
+            <div class="card-body">
+              <ul>
+                <li>Near- vs. long-term trade-offs</li>
+                <li>Partnerships & alliances</li>
+                <li>Exit paths & growth options</li>
+              </ul>
+            </div>
+          </details>
+          <!-- 8 -->
+          <details class="card">
+            <summary><span class="sum-title">8. Societal &amp; Ethical Perspective</span><span class="caret">▾</span></summary>
+            <div class="card-body">
+              <ul>
+                <li>Impact & sustainability</li>
+                <li>Ethics of decisions</li>
+                <li>Regulatory & legal</li>
+              </ul>
+            </div>
+          </details>
+          <!-- 9 -->
+          <details class="card">
+            <summary><span class="sum-title">9. Contrarian / Devil’s Advocate</span><span class="caret">▾</span></summary>
+            <div class="card-body">
+              <ul>
+                <li>What if assumptions are wrong?</li>
+                <li>The critic’s point of view</li>
+                <li>Sudden market shifts</li>
+              </ul>
+            </div>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services">
+    <div class="container">
+      <h2 class="section-title">Services</h2>
+      <p class="lead">Bespoke, outcome-oriented engagements across three tracks.</p>
+
+      <!-- Strategy -->
+      <div class="services-group" aria-labelledby="svc-strategy">
+        <h3 id="svc-strategy" class="services-subhead">Strategy</h3>
+        <p class="services-note">Clarity of identity, position, and path to market.</p>
+        <div class="grid cards" role="list">
+          <details class="card" role="listitem">
+            <summary><span class="sum-title">Brand Strategy &amp; Development</span><span class="caret">▾</span></summary>
+            <div class="card-body">
+              <p>Define mission, values, audience, and narrative. Research-backed brand architecture that resonates and compounds equity.</p>
+              <ul>
+                <li><b>Sample deliverables:</b> Brand brief, messaging house, tone & voice guide, visual direction notes</li>
+              </ul>
+            </div>
+          </details>
+          <details class="card" role="listitem">
+            <summary><span class="sum-title">Market &amp; Positioning</span><span class="caret">▾</span></summary>
+            <div class="card-body">
+              <p>Opportunity sizing, competitive mapping, and differentiated positioning—grounded in discovery and real-world signals.</p>
+              <ul>
+                <li><b>Sample deliverables:</b> Market map, ICPs, positioning statement, moat analysis</li>
+              </ul>
+            </div>
+          </details>
+          <details class="card" role="listitem">
+            <summary><span class="sum-title">Go-to-Market (GTM)</span><span class="caret">▾</span></summary>
+            <div class="card-body">
+              <p>Align product, sales, and marketing for launches that land. Targeting, journey mapping, and a tactical plan for impact.</p>
+              <ul>
+                <li><b>Sample deliverables:</b> Launch plan, channel mix, KPI framework, enablement kit</li>
+              </ul>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- Marketing -->
+      <div class="services-group" aria-labelledby="svc-marketing">
+        <h3 id="svc-marketing" class="services-subhead">Marketing</h3>
+        <p class="services-note">Acquire, engage, and grow with intent.</p>
+        <div class="grid cards" role="list">
+          <details class="card" role="listitem">
+            <summary><span class="sum-title">Content &amp; Editorial</span><span class="caret">▾</span></summary>
+            <div class="card-body">
+              <p>Articles, data-driven pieces, video scripts, and social copy—on-voice and built to fuel funnels.</p>
+              <ul>
+                <li><b>Sample deliverables:</b> Editorial calendar, pillar & cluster outlines, script decks, social kits</li>
+              </ul>
+            </div>
+          </details>
+          <details class="card" role="listitem">
+            <summary><span class="sum-title">SEO / SEM</span><span class="caret">▾</span></summary>
+            <div class="card-body">
+              <p>Keyword research, on-page & technical SEO, plus targeted SEM campaigns to grow qualified demand and maximize ROAS.</p>
+              <ul>
+                <li><b>Sample deliverables:</b> KW map, technical audit, on-page playbook, SEM campaign plan</li>
+              </ul>
+            </div>
+          </details>
+          <details class="card" role="listitem">
+            <summary><span class="sum-title">Social Media Marketing</span><span class="caret">▾</span></summary>
+            <div class="card-body">
+              <p>Strategy, creative, and analytics for organic and paid programs that build community and move metrics.</p>
+              <ul>
+                <li><b>Sample deliverables:</b> Channel strategy, content themes, paid playbooks, reporting dashboards</li>
+              </ul>
+            </div>
+          </details>
+          <details class="card" role="listitem">
+            <summary><span class="sum-title">Marketing Analytics</span><span class="caret">▾</span></summary>
+            <div class="card-body">
+              <p>Implement tracking, define KPIs, and analyze performance to surface insights that optimize spend and accelerate growth.</p>
+              <ul>
+                <li><b>Sample deliverables:</b> Measurement plan, KPI tree, attribution review, insight sprints</li>
+              </ul>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- Product & UX -->
+      <div class="services-group" aria-labelledby="svc-product">
+        <h3 id="svc-product" class="services-subhead">Product &amp; UX</h3>
+        <p class="services-note">Make things customers actually use—and love.</p>
+        <div class="grid cards" role="list">
+          <details class="card" role="listitem">
+            <summary><span class="sum-title">Product &amp; UX Advisory</span><span class="caret">▾</span></summary>
+            <div class="card-body">
+              <p>MVP scoping, experience reviews, and qualitative research to remove friction and lift adoption.</p>
+              <ul>
+                <li><b>Sample deliverables:</b> MVP spec, UX teardown, research plan, usability findings</li>
+              </ul>
+            </div>
+          </details>
+          <details class="card" role="listitem">
+            <summary><span class="sum-title">Product Marketing</span><span class="caret">▾</span></summary>
+            <div class="card-body">
+              <p>Positioning & messaging, feature/launch playbooks, and sales enablement—closing the gap between value and understanding.</p>
+              <ul>
+                <li><b>Sample deliverables:</b> Messaging matrix, launch comms kit, one-pagers, demo narrative</li>
+              </ul>
+            </div>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Selected Work -->
+  <section id="work">
+    <div class="container">
+      <h2 class="section-title">Selected Work</h2>
+      <div class="grid cards" role="list">
+        <details class="card" role="listitem">
+          <summary><span class="sum-title">Assessment SaaS</span><span class="caret">▾</span></summary>
+          <div class="card-body">
+            <p>Scaled a web-based pre-employment testing platform; advised on product, ops, and growth levers.</p>
+            <ul>
+              <li><b>Highlights:</b> GTM evolution, onboarding UX, sales enablement overhaul</li>
+            </ul>
+          </div>
+        </details>
+        <details class="card" role="listitem">
+          <summary><span class="sum-title">Ed-Media Platform</span><span class="caret">▾</span></summary>
+          <div class="card-body">
+            <p>Built one of the earliest interactive paid streaming VOD services used by millions of students and teachers.</p>
+            <ul>
+              <li><b>Highlights:</b> Content licensing, platform scale, classroom adoption strategy</li>
+            </ul>
+          </div>
+        </details>
+        <details class="card" role="listitem">
+          <summary><span class="sum-title">Content &amp; IP</span><span class="caret">▾</span></summary>
+          <div class="card-body">
+            <p>Concepted and developed scripted/unscripted formats and short-form campaigns for targeted audiences.</p>
+            <ul>
+              <li><b>Highlights:</b:> Show bibles, pilot treatments, campaign creative</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">Contact</h2>
+      <p class="lead">Interested in working together? Let’s talk.</p>
+      <p>
+        <a class="btn primary" href="mailto:info@parallaxviews.com">info@parallaxviews.com</a>
+      </p>
+      <p style="color:var(--muted); font-size:14px;">ParallaX Views, LLC — Los Angeles, CA</p>
+    </div>
+  </section>
+
+  <!-- Founder background (bottom) -->
+  <section id="founder">
+    <div class="container about-wrap">
+      <h2 class="section-title" style="color:var(--muted)">Founder &amp; Background</h2>
 
       <h3>Entrepreneurial Journey</h3>
       <p>In the early 1980s, David was Principal and Co-President of <strong>AIMS Media</strong> with his brothers, where he modernized its 
@@ -284,139 +571,6 @@
         debut novel, <em><a href="https://www.aquestionofbalance.com" target="_blank" rel="noopener">A Question of Balance</a></em> 
         —a psychological-philosophical murder mystery.
       </p>
-
-      <div class="pt-wrap">
-        <h3 class="pt-title">ParallaX Thinking — Analysis &amp; Considerations</h3>
-        <div class="pt-grid">
-          <div class="pt-item">
-            <h4 class="pt-head">1. Founder’s Perspective</h4>
-            <ul class="pt-list">
-              <li>Vision, values, and personal goals</li>
-              <li>Risk tolerance and leadership style</li>
-              <li>Strengths and blind spots</li>
-            </ul>
-          </div>
-          <div class="pt-item">
-            <h4 class="pt-head">2. Customer Perspective</h4>
-            <ul class="pt-list">
-              <li>Needs, pain points, and desires</li>
-              <li>Emotional and rational buying triggers</li>
-              <li>User experience across touchpoints</li>
-            </ul>
-          </div>
-          <div class="pt-item">
-            <h4 class="pt-head">3. Market &amp; Competitor Perspective</h4>
-            <ul class="pt-list">
-              <li>Industry trends and disruptions</li>
-              <li>Competitive positioning and differentiation</li>
-              <li>Market gaps and underserved segments</li>
-            </ul>
-          </div>
-          <div class="pt-item">
-            <h4 class="pt-head">4. Financial Perspective</h4>
-            <ul class="pt-list">
-              <li>Revenue models and pricing strategies</li>
-              <li>Cash flow, burn rate, and funding needs</li>
-              <li>Investor expectations and ROI</li>
-            </ul>
-          </div>
-          <div class="pt-item">
-            <h4 class="pt-head">5. Operational Perspective</h4>
-            <ul class="pt-list">
-              <li>Scalability of systems and processes</li>
-              <li>Supply chain and resource management</li>
-              <li>Team structure and productivity</li>
-            </ul>
-          </div>
-          <div class="pt-item">
-            <h4 class="pt-head">6. Team &amp; Culture Perspective</h4>
-            <ul class="pt-list">
-              <li>Hiring strategy and talent development</li>
-              <li>Internal communication and collaboration</li>
-              <li>Company culture and values alignment</li>
-            </ul>
-          </div>
-          <div class="pt-item">
-            <h4 class="pt-head">7. Strategic Perspective</h4>
-            <ul class="pt-list">
-              <li>Short-term vs. long-term trade-offs</li>
-              <li>Strategic partnerships and alliances</li>
-              <li>Exit strategies and growth pathways</li>
-            </ul>
-          </div>
-          <div class="pt-item">
-            <h4 class="pt-head">8. Societal &amp; Ethical Perspective</h4>
-            <ul class="pt-list">
-              <li>Social impact and sustainability</li>
-              <li>Ethical implications of business decisions</li>
-              <li>Regulatory and legal compliance</li>
-            </ul>
-          </div>
-          <div class="pt-item">
-            <h4 class="pt-head">9. Contrarian or “Devil’s Advocate” View</h4>
-            <ul class="pt-list">
-              <li>What if the core assumptions are wrong?</li>
-              <li>What would a critic or competitor say?</li>
-              <li>What happens if the market shifts suddenly?</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Services -->
-  <section id="services">
-    <div class="container">
-      <h2 class="section-title">Services</h2>
-      <p class="lead">Engagements are bespoke and outcome-oriented. Typical tracks include:</p>
-      <div class="grid cards" role="list">
-        <article class="card" role="listitem">
-          <h4>Startup & GTM Strategy</h4>
-          <p>Market mapping, opportunity sizing, positioning, and narrative—grounded in data and customer discovery.</p>
-        </article>
-        <article class="card" role="listitem">
-          <h4>Product & UX Advisory</h4>
-          <p>From MVP scoping to experience reviews and qualitative research to uncover friction and lift adoption.</p>
-        </article>
-        <article class="card" role="listitem">
-          <h4>Media & Content</h4>
-          <p>Short-form and long-form concepts, scripts, and production guidance aligned to brand strategy.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Selected Work -->
-  <section id="work">
-    <div class="container">
-      <h2 class="section-title">Selected Work</h2>
-      <div class="grid cards">
-        <article class="card">
-          <h4>Assessment SaaS</h4>
-          <p>Scaled a web-based pre-employment testing platform; advised on product, ops, and growth levers.</p>
-        </article>
-        <article class="card">
-          <h4>Ed-Media Platform</h4>
-          <p>Built one of the earliest interactive paid streaming VOD services used by millions of students and teachers.</p>
-        </article>
-        <article class="card">
-          <h4>Content & IP</h4>
-          <p>Concepted and developed scripted/unscripted formats and short-form campaigns for targeted audiences.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact">
-    <div class="container">
-      <h2 class="section-title">Contact</h2>
-      <p class="lead">Interested in working together? Let’s talk.</p>
-      <p>
-        <a class="btn primary" href="mailto:info@parallaxviews.com">info@parallaxviews.com</a>
-      </p>
-      <p style="color:var(--muted); font-size:14px;">ParallaX Views, LLC — Los Angeles, CA</p>
     </div>
   </section>
 
@@ -431,18 +585,15 @@
     </div>
   </footer>
 
-  <!-- Smooth scroll fallback for older browsers -->
+  <!-- Small enhancement: close sibling details when one opens inside the same grid -->
   <script>
-    (function() {
-      if ('scrollBehavior' in document.documentElement.style) return;
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-          e.preventDefault();
-          const target = document.querySelector(this.getAttribute('href'));
-          if (target) target.scrollIntoView({ behavior: 'smooth' });
-        });
-      });
-    })();
+    document.querySelectorAll('.grid.cards').forEach(grid => {
+      grid.addEventListener('toggle', (e) => {
+        const t = e.target;
+        if (t.tagName !== 'DETAILS' || !t.open) return;
+        grid.querySelectorAll('details.card[open]').forEach(d => { if (d !== t) d.open = false; });
+      }, true);
+    });
   </script>
 
 </body>
