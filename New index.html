@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ParallaX Views, LLC — Multiple Perspectives. Singular Insight.™</title>
+  <meta name="description" content="ParallaX Views, LLC: consulting, product strategy, and media development. Multiple Perspectives. Singular Insight.™" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    html { scroll-behavior: smooth; }
+
+    :root{
+      --bg:#ffffff;
+      --ink:#0f172a;
+      --muted:#475569;
+      --line:#e2e8f0;
+      --accent:#0ea5e9;
+      --card:#f8fafc;
+      --radius:18px;
+      --shadow:0 10px 30px rgba(2,6,23,.08);
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--ink);
+      font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";
+      line-height:1.6;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    .site-header{
+      position:sticky; top:0; z-index:50;
+      background:rgba(255,255,255,.9);
+      backdrop-filter:saturate(140%) blur(6px);
+      border-bottom:1px solid var(--line);
+    }
+
+    .container{max-width:1120px; margin:0 auto; padding:0 20px}
+
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+    }
+
+    .brand{display:flex; align-items:center; gap:14px; text-decoration:none; color:inherit}
+    .brand img{height:34px; width:auto; display:block; image-rendering:auto;}
+    .brand .wordmark{font-weight:700; letter-spacing:.2px}
+    .brand .tagline,
+    footer .tagline{
+      display:block;
+      font-size:13.5px;
+      color:var(--muted);
+      font-style:italic;
+      letter-spacing:.3px;
+      margin-top:2px;
+    }
+
+    .nav a.link{
+      color:var(--ink);
+      text-decoration:none;
+      font-weight:600;
+      font-size:14.5px;
+      padding:8px 10px;
+      border-radius:10px;
+    }
+
+    .nav a.link:hover{background:#eef2f7}
+
+    .hero{
+      padding:72px 0 56px;
+      border-bottom:1px solid var(--line);
+      background:
+        radial-gradient(1200px 400px at 20% -10%, #e0f2fe 0, transparent 60%),
+        radial-gradient(1200px 400px at 120% 10%, #f0f9ff 0, transparent 65%),
+        #ffffff;
+    }
+
+    .hero-grid{display:grid; grid-template-columns:1.2fr .8fr; gap:36px}
+    .h-eyebrow{color:var(--accent); font-weight:700; letter-spacing:.4px; text-transform:uppercase; font-size:12px}
+    .h-title{font-size:clamp(28px,3.5vw,40px); line-height:1.15; margin:.35rem 0 1rem; font-weight:800; letter-spacing:.2px}
+    .h-sub{color:var(--muted); font-size:18px; max-width:62ch}
+    .cta-row{margin-top:22px; display:flex; gap:12px; flex-wrap:wrap}
+
+    .btn{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:12px 16px; border-radius:12px; font-weight:700; text-decoration:none;
+      border:1px solid #cbd5e1; color:var(--ink); background:#fff;
+      box-shadow:0 2px 0 rgba(15,23,42,.04);
+      cursor:pointer;
+      transition:transform .12s ease, opacity .12s ease, background .12s ease;
+    }
+
+    .btn.primary{background:var(--ink); color:#fff; border-color:var(--ink)}
+    .btn:hover{transform:translateY(-1px)}
+    .btn:disabled{opacity:.7; cursor:wait; transform:none}
+
+    .hero-card{
+      background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+      padding:18px; box-shadow:var(--shadow)
+    }
+
+    .hero-card h3{margin:0 0 6px}
+    .hero-logo{
+      width:100%; height:120px; border-radius:14px; background:#fff; border:1px dashed var(--line);
+      display:flex; align-items:center; justify-content:center; margin:8px 0 0;
+    }
+    .hero-logo img{max-height:100%; max-width:100%; height:auto; object-fit:contain}
+
+    section{padding:56px 0}
+    .section-title{font-size:26px; margin:0 0 18px}
+    .lead{color:var(--muted); max-width:70ch}
+
+    .grid{display:grid; gap:18px}
+    .grid.cards{grid-template-columns:repeat(3,1fr)}
+
+    details.card{
+      background:#fff; border:1px solid var(--line); border-radius:var(--radius);
+      box-shadow:var(--shadow); overflow:hidden;
+    }
+
+    details.card[open]{box-shadow:0 14px 36px rgba(2,6,23,.10)}
+
+    summary{
+      list-style:none; cursor:pointer; padding:16px 18px; outline:none;
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+    }
+
+    summary::-webkit-details-marker{display:none}
+    .sum-title{margin:0; font-weight:700; font-size:16px}
+    .caret{transition:transform .2s ease; font-size:18px; line-height:1; color:var(--muted)}
+    details[open] .caret{transform:rotate(180deg)}
+
+    .card-body{padding:0 18px 18px; color:var(--muted); font-size:15px}
+    .card-body p{margin:0 0 10px}
+    .card-body ul{margin:0 0 0 18px; line-height:1.5}
+
+    #about .about-wrap{color:var(--muted); font-size:15.5px; line-height:1.55}
+    #about .about-wrap h2, #about .about-wrap h3{color:var(--muted); font-weight:700; margin:16px 0 8px; line-height:1.3}
+
+    .pt-wrap{
+      background:#fff;
+      border-top:1px solid var(--line);
+      padding:16px 0 0;
+      margin:24px auto 0;
+      max-width:100%;
+      box-shadow:none;
+    }
+
+    .pt-title{font-size:16px; font-weight:700; margin:0 0 16px; color:var(--ink); letter-spacing:.3px}
+    .pt-grid{display:grid; grid-template-columns:1fr; gap:14px; margin-top:12px}
+    .services-group{margin-top:30px}
+    .services-subhead{font-size:18px; font-weight:800; letter-spacing:.2px; margin:10px 0 8px; color:var(--ink)}
+    .services-note{color:var(--muted); font-size:14px; margin-top:-6px}
+
+    .contact-card{
+      max-width:760px;
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:22px;
+    }
+
+    .contact-form{
+      display:grid;
+      gap:16px;
+    }
+
+    .form-row{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:16px;
+    }
+
+    .field{
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+    }
+
+    .field label{
+      font-size:14px;
+      font-weight:600;
+      color:var(--ink);
+    }
+
+    .field input,
+    .field textarea{
+      width:100%;
+      border:1px solid #cbd5e1;
+      border-radius:12px;
+      padding:12px 14px;
+      font:inherit;
+      color:var(--ink);
+      background:#fff;
+    }
+
+    .field input:focus,
+    .field textarea:focus{
+      outline:none;
+      border-color:var(--accent);
+      box-shadow:0 0 0 3px rgba(14,165,233,.12);
+    }
+
+    .field textarea{
+      min-height:160px;
+      resize:vertical;
+    }
+
+    .form-note{
+      color:var(--muted);
+      font-size:13px;
+      margin:0;
+    }
+
+    .form-status{
+      display:none;
+      margin:0;
+      font-size:14px;
+      color:var(--muted);
+    }
+
+    .hp-field{
+      position:absolute !important;
+      left:-9999px !important;
+      width:1px !important;
+      height:1px !important;
+      overflow:hidden !important;
+    }
+
+    .contact-meta{
+      color:var(--muted);
+      font-size:14px;
+      margin-top:14px;
+    }
+
+    footer{
+      border-top:1px solid var(--line);
+      background:#fcfcfd;
+      color:#64748b;
+      padding:30px 0;
+      font-size:14px;
+    }
+
+    @media (min-width: 720px){
+      .pt-grid{grid-template-columns:repeat(2, 1fr)}
+    }
+
+    @media (min-width: 1100px){
+      .pt-grid{grid-template-columns:repeat(3, 1fr)}
+    }
+
+    @media (max-width:940px){
+      .grid.cards{grid-template-columns:1fr 1fr}
+      .hero-grid{grid-template-columns:1fr}
+    }
+
+    @media (max-width:640px){
+      .nav{flex-wrap:wrap; gap:10px}
+      .grid.cards{grid-template-columns:1fr}
+      .brand img{height:30px}
+      .brand .wordmark{font-size:16px}
+      .pt-grid{grid-template-columns:1fr}
+      .form-row{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <div class="nav">
+        <a class="brand" href="#top" aria-label="ParallaX Views, LLC">
+          <img src="PVX.gif" alt="ParallaX Views logo: RGB parallax lines" />
+          <div>
+            <div class="wordmark">ParallaX Views, LLC</div>
+            <div class="tagline">ParallaX Thinking: Multiple Perspectives. Singular Insight.™</div>
+          </div>
+        </a>
+        <nav>
+          <a class="link" href="#services">Services</a>
+          <a class="link" href="#about">About</a>
+          <a class="link" href="#work">Selected Work</a>
+          <a class="link" href="#team">Team</a>
+          <a class="link" href="#founder">Founder</a>
+          <a class="link" href="#contact">Contact</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <section id="top" class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="h-eyebrow">ParallaX Thinking</div>
+        <h1 class="h-title">Better decisions through perspectives that don’t line up—on purpose.</h1>
+        <p class="h-sub">We help founders and teams see products, customers, and risks from multiple angles. That shift—in perspective and evidence—creates singular insight.</p>
+        <div class="cta-row">
+          <a class="btn primary" href="#contact">Start a conversation</a>
+          <a class="btn" href="#services">Explore services →</a>
+        </div>
+      </div>
+      <aside class="hero-card" aria-label="At-a-glance">
+        <h3>What We Do</h3>
+        <p class="lead">Strategy, product, and media—brought together by disciplined research and pragmatic execution.</p>
+        <ul>
+          <li>Present multiple perspectives on complex topics</li>
+          <li>Foster critical thinking and dialogue</li>
+          <li>Explore intersections of culture, philosophy, and society</li>
+        </ul>
+        <div class="hero-logo"><img src="PVX.gif" alt="ParallaX Views logo" loading="lazy" /></div>
+      </aside>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container about-wrap">
+      <h2 class="section-title" style="color:var(--muted)">About</h2>
+
+      <h3>About ParallaX Views</h3>
+      <p><strong>ParallaX Views, LLC</strong> is led by <strong>David S. Sherman, Ph.D.</strong>—entrepreneur, business strategist, educator, and licensed psychotherapist. With a career spanning technology, media, psychology, and product design, David brings a unique perspective to strategy and leadership.</p>
+
+      <p>At the heart of ParallaX Views is <b><em>ParallaX Thinking</em></b>—the practice of examining challenges from multiple, often contrasting vantage points to uncover blind spots, challenge assumptions, and surface deeper insights. This perspective-shifting approach is paired with <b>Divergent Thinking</b>, the process of generating a wide field of possibilities before converging on evidence-based solutions.</p>
+
+      <div class="pt-wrap" aria-label="ParallaX Thinking — Analysis & Considerations">
+        <h3 class="pt-title">ParallaX Thinking — Analysis &amp; Considerations</h3>
+        <div class="pt-grid">
+          <details class="card"><summary><span class="sum-title">1. Founder’s Perspective</span><span class="caret">▾</span></summary><div class="card-body"><ul><li>Vision, values, personal goals</li><li>Risk tolerance & leadership style</li><li>Strengths & blind spots</li></ul></div></details>
+          <details class="card"><summary><span class="sum-title">2. Customer Perspective</span><span class="caret">▾</span></summary><div class="card-body"><ul><li>Needs & pain points</li><li>Emotional vs. rational triggers</li><li>Experience across touchpoints</li></ul></div></details>
+          <details class="card"><summary><span class="sum-title">3. Market &amp; Competitor Perspective</span><span class="caret">▾</span></summary><div class="card-body"><ul><li>Trends & disruptions</li><li>Positioning & differentiation</li><li>Gaps & underserved segments</li></ul></div></details>
+          <details class="card"><summary><span class="sum-title">4. Financial Perspective</span><span class="caret">▾</span></summary><div class="card-body"><ul><li>Revenue models & pricing</li><li>Cash flow, burn, funding</li><li>Investor expectations & ROI</li></ul></div></details>
+          <details class="card"><summary><span class="sum-title">5. Operational Perspective</span><span class="caret">▾</span></summary><div class="card-body"><ul><li>Systems & scalability</li><li>Supply chain & resources</li><li>Team structure & productivity</li></ul></div></details>
+          <details class="card"><summary><span class="sum-title">6. Team &amp; Culture Perspective</span><span class="caret">▾</span></summary><div class="card-body"><ul><li>Hiring & development</li><li>Communication & collaboration</li><li>Values alignment</li></ul></div></details>
+          <details class="card"><summary><span class="sum-title">7. Strategic Perspective</span><span class="caret">▾</span></summary><div class="card-body"><ul><li>Near- vs. long-term trade-offs</li><li>Partnerships & alliances</li><li>Exit paths & growth options</li></ul></div></details>
+          <details class="card"><summary><span class="sum-title">8. Societal &amp; Ethical Perspective</span><span class="caret">▾</span></summary><div class="card-body"><ul><li>Impact & sustainability</li><li>Ethics of decisions</li><li>Regulatory & legal</li></ul></div></details>
+          <details class="card"><summary><span class="sum-title">9. Contrarian / Devil’s Advocate</span><span class="caret">▾</span></summary><div class="card-body"><ul><li>What if assumptions are wrong?</li><li>The critic’s point of view</li><li>Sudden market shifts</li></ul></div></details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="container">
+      <h2 class="section-title">Services</h2>
+      <p class="lead">Bespoke, outcome-oriented engagements across three tracks.</p>
+
+      <div class="services-group" aria-labelledby="svc-strategy">
+        <h3 id="svc-strategy" class="services-subhead">Strategy</h3>
+        <p class="services-note">Clarity of identity, position, and path to market.</p>
+        <div class="grid cards" role="list">
+          <details class="card" role="listitem"><summary><span class="sum-title">Brand Strategy &amp; Development</span><span class="caret">▾</span></summary><div class="card-body"><p>Define mission, values, audience, and narrative. Research-backed brand architecture that resonates and compounds equity.</p><ul><li><b>Sample deliverables:</b> Brand brief, messaging house, tone & voice guide, visual direction notes</li></ul></div></details>
+          <details class="card" role="listitem"><summary><span class="sum-title">Market &amp; Positioning</span><span class="caret">▾</span></summary><div class="card-body"><p>Opportunity sizing, competitive mapping, and differentiated positioning—grounded in discovery and real-world signals.</p><ul><li><b>Sample deliverables:</b> Market map, ICPs, positioning statement, moat analysis</li></ul></div></details>
+          <details class="card" role="listitem"><summary><span class="sum-title">Go-to-Market (GTM)</span><span class="caret">▾</span></summary><div class="card-body"><p>Align product, sales, and marketing for launches that land. Targeting, journey mapping, and a tactical plan for impact.</p><ul><li><b>Sample deliverables:</b> Launch plan, channel mix, KPI framework, enablement kit</li></ul></div></details>
+        </div>
+      </div>
+
+      <div class="services-group" aria-labelledby="svc-marketing">
+        <h3 id="svc-marketing" class="services-subhead">Marketing</h3>
+        <p class="services-note">Acquire, engage, and grow with intent.</p>
+        <div class="grid cards" role="list">
+          <details class="card" role="listitem"><summary><span class="sum-title">Content &amp; Editorial</span><span class="caret">▾</span></summary><div class="card-body"><p>Articles, data-driven pieces, video scripts, and social copy—on-voice and built to fuel funnels.</p><ul><li><b>Sample deliverables:</b> Editorial calendar, pillar & cluster outlines, script decks, social kits</li></ul></div></details>
+          <details class="card" role="listitem"><summary><span class="sum-title">SEO / SEM</span><span class="caret">▾</span></summary><div class="card-body"><p>Keyword research, on-page & technical SEO, plus targeted SEM campaigns to grow qualified demand and maximize ROAS.</p><ul><li><b>Sample deliverables:</b> KW map, technical audit, on-page playbook, SEM campaign plan</li></ul></div></details>
+          <details class="card" role="listitem"><summary><span class="sum-title">Social Media Marketing</span><span class="caret">▾</span></summary><div class="card-body"><p>Strategy, creative, and analytics for organic and paid programs that build community and move metrics.</p><ul><li><b>Sample deliverables:</b> Channel strategy, content themes, paid playbooks, reporting dashboards</li></ul></div></details>
+          <details class="card" role="listitem"><summary><span class="sum-title">Marketing Analytics</span><span class="caret">▾</span></summary><div class="card-body"><p>Implement tracking, define KPIs, and analyze performance to surface insights that optimize spend and accelerate growth.</p><ul><li><b>Sample deliverables:</b> Measurement plan, KPI tree, attribution review, insight sprints</li></ul></div></details>
+        </div>
+      </div>
+
+      <div class="services-group" aria-labelledby="svc-product">
+        <h3 id="svc-product" class="services-subhead">Product &amp; UX</h3>
+        <p class="services-note">Make things customers actually use—and love.</p>
+        <div class="grid cards" role="list">
+          <details class="card" role="listitem"><summary><span class="sum-title">Product &amp; UX Advisory</span><span class="caret">▾</span></summary><div class="card-body"><p>MVP scoping, experience reviews, and qualitative research to remove friction and lift adoption.</p><ul><li><b>Sample deliverables:</b> MVP spec, UX teardown, research plan, usability findings</li></ul></div></details>
+          <details class="card" role="listitem"><summary><span class="sum-title">Product Marketing</span><span class="caret">▾</span></summary><div class="card-body"><p>Positioning & messaging, feature/launch playbooks, and sales enablement—closing the gap between value and understanding.</p><ul><li><b>Sample deliverables:</b> Messaging matrix, launch comms kit, one-pagers, demo narrative</li></ul></div></details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="container">
+      <h2 class="section-title">Selected Work</h2>
+      <div class="grid cards" role="list">
+        <details class="card" role="listitem"><summary><span class="sum-title">SaaS</span><span class="caret">▾</span></summary><div class="card-body"><p>Scaled a web-based pre-employment testing platform; advised on product, operations, and growth levers.</p><ul><li><b>Highlights:</b> GTM evolution, onboarding UX, sales enablement overhaul</li></ul></div></details>
+        <details class="card" role="listitem"><summary><span class="sum-title">Ed-Media Platform</span><span class="caret">▾</span></summary><div class="card-body"><p>Built one of the earliest interactive paid streaming video-on-demand services used by millions of students and teachers.</p><ul><li><b>Highlights:</b> Content licensing, platform scale, classroom adoption strategy</li></ul></div></details>
+        <details class="card" role="listitem"><summary><span class="sum-title">Content &amp; IP</span><span class="caret">▾</span></summary><div class="card-body"><p>Concepted and developed scripted and unscripted formats, as well as short-form campaigns for targeted audiences.</p><ul><li><b>Highlights:</b> Show bibles, pilot treatments, campaign creative</li></ul></div></details>
+      </div>
+    </div>
+  </section>
+
+  <section id="team">
+    <div class="container">
+      <h2 class="section-title">Team</h2>
+
+      <details class="card" role="listitem">
+        <summary>
+          <span class="sum-title">Team — David S. Sherman, Ph.D. &amp; Drew Sherman</span>
+          <span class="caret">▾</span>
+        </summary>
+        <div class="card-body">
+          <style>
+            .team-bios{display:grid;gap:18px;grid-template-columns:1fr}
+            @media (min-width: 900px){ .team-bios{grid-template-columns:1fr 1fr} }
+            .bio{border:1px solid var(--line); border-radius:12px; padding:14px; background:#fff}
+            .bio h4{margin:0 0 8px; font-size:16px; color:var(--ink)}
+            .bio p{margin:0 0 10px}
+            .bio ul{margin:0 0 0 18px; line-height:1.5}
+          </style>
+
+          <div class="team-bios">
+            <div class="bio">
+              <h4>David S. Sherman, Ph.D. — Founder &amp; Managing Partner</h4>
+              <p><strong>Brief Bio:</strong> Entrepreneur, strategist, and licensed psychotherapist, David blends product rigor with human insight. He modernized AIMS Media into AIMS Multimedia and co-founded <strong>Criteria Corp</strong>, a pioneering SaaS talent platform now serving 4,000+ organizations worldwide and delivering 60M+ assessments. At ParallaX Views, he applies “ParallaX Thinking”—structured, multi-angle analysis—to help founders make faster, smarter decisions across brand, product, and GTM. David serves on Criteria’s board and is the author of <em><a href="https://www.aquestionofbalance.com" target="_blank" rel="noopener">A Question of Balance</a></em>. Los Angeles.</p>
+              <ul>
+                <li><strong>Focus:</strong> Strategy &amp; GTM, product/UX counsel, founder coaching, board advisory</li>
+                <li><strong>Highlights:</strong> Criteria Corp co-founder &amp; former COO; AIMS Multimedia modernization</li>
+              </ul>
+            </div>
+
+            <div class="bio">
+              <h4>Drew Sherman — Chief Marketing Officer</h4>
+              <p><strong>Brief Bio:</strong> Brand and growth leader uniting strategy, content, and performance to build demand at speed. Currently SVP, Brand Marketing &amp; Strategy at <strong>RPM</strong>, he unified global brand architecture, launched the B2B2C platform <em>RPM Moves</em>, and led programs tied to <strong>$5MM</strong> in net revenue—onboarding <strong>2,000</strong> carriers (2024–2025). His campaigns generated <strong>3M+ organic impressions</strong> at approximately <strong>12% engagement</strong> and lifted site traffic <strong>270%</strong>. Former creative lead at MXM (Accenture) with award-winning work for Apple, HBO, Netflix, Lenovo, and more. B.S. in Cinema, Video, and Production, Film, Writing (Roy H. Park School of Communications, Ithaca College); Marketing Extension (University of California, Los Angeles).</p>
+              <ul>
+                <li><strong>Focus:</strong> Brand architecture, GTM, content &amp; editorial, SEO/SEM, social, analytics</li>
+                <li><strong>Awards:</strong> DotComm Platinum; multiple WebAwards; ICSC MAXI; Digiday honors</li>
+                <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/DrewSherman-cd" target="_blank" rel="noopener">View profile</a></li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">Contact</h2>
+      <p class="lead">Interested in working together? Send a message and we’ll be in touch.</p>
+
+      <div class="contact-card">
+        <form
+          id="contact-form"
+          class="contact-form"
+          action="https://formspree.io/f/xqegyydl"
+          method="POST"
+          accept-charset="utf-8"
+          autocomplete="on"
+        >
+          <div class="form-row">
+            <div class="field">
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" required autocomplete="name" />
+            </div>
+
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" required autocomplete="email" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label for="company">Company</label>
+              <input id="company" name="company" type="text" autocomplete="organization" />
+            </div>
+
+            <div class="field">
+              <label for="subject">Subject</label>
+              <input id="subject" name="subject" type="text" autocomplete="off" />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
+
+          <div class="hp-field" aria-hidden="true">
+            <label for="website">Website</label>
+            <input id="website" name="website" type="text" tabindex="-1" autocomplete="off" />
+          </div>
+
+          <button id="submitButton" class="btn primary" type="submit">Send message</button>
+          <p id="formStatus" class="form-status">Sending…</p>
+          <p class="form-note">This form keeps your email address out of the page source and routes submissions through Formspree.</p>
+        </form>
+      </div>
+
+      <p class="contact-meta">ParallaX Views, LLC — Los Angeles, CA</p>
+    </div>
+  </section>
+
+  <section id="founder">
+    <div class="container about-wrap">
+      <h2 class="section-title" style="color:var(--muted)">Founder &amp; Background</h2>
+
+      <h3>Entrepreneurial Journey</h3>
+      <p>In the early 1980s, David was Principal and Co-President of <strong>AIMS Media</strong> with his brothers, where he modernized its 16mm film and filmstrip library into <strong>AIMS Multimedia</strong>, a pioneer in educational technology. He spearheaded the development of <strong>DigitalCurriculum</strong>, the first streaming video-on-demand service for education, which served more than 20 million students when it was acquired by <strong>Discovery Communications, Inc.</strong> in 2004.</p>
+
+      <p>After a brief retirement, David co-founded <strong><a href="https://www.criteriacorp.com" target="_blank" rel="noopener">Criteria Corp</a></strong>, the first SaaS pre-employment assessment platform, where he served as COO until his second retirement in 2024. Under his leadership, Criteria expanded into a global talent assessment and development platform—today supporting more than 4,000 organizations worldwide, with over 60 million assessments administered in 30 languages across 60+ countries. David continues to serve on its Board of Directors.</p>
+
+      <h3>Beyond Business</h3>
+      <p>Alongside his entrepreneurial work, David remains deeply engaged in psychology and the arts. He is a licensed psychotherapist and continues to advise startups and young entrepreneurs. He is also the author of <em><a href="https://www.aquestionofbalance.com" target="_blank" rel="noopener">A Question of Balance</a></em>, a psychological-philosophical murder mystery.</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      © 2026 ParallaX Views, LLC. All rights reserved. •
+      <span class="tagline">
+        <a href="#about" style="text-decoration:none; color:inherit; font-weight:600;">ParallaX Thinking</a>:
+        Multiple Perspectives. Singular Insight.™
+      </span>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('toggle', function(e) {
+      const t = e.target;
+      if (t.tagName !== 'DETAILS' || !t.classList.contains('card')) return;
+      const shouldOpen = t.open;
+      document.querySelectorAll('details.card').forEach(d => { d.open = shouldOpen; });
+    }, true);
+
+    (function() {
+      if ('scrollBehavior' in document.documentElement.style) return;
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) target.scrollIntoView({ behavior: 'smooth' });
+        });
+      });
+    })();
+
+    (function () {
+      const form = document.getElementById('contact-form');
+      const submitButton = document.getElementById('submitButton');
+      const formStatus = document.getElementById('formStatus');
+
+      if (!form || !submitButton || !formStatus) return;
+
+      form.addEventListener('submit', function () {
+        submitButton.disabled = true;
+        submitButton.textContent = 'Sending…';
+        formStatus.style.display = 'block';
+      });
+    })();
+  </script>
+</body>
+</html>
