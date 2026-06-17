@@ -305,7 +305,7 @@
       <p class="lead">Focused engagements for moments when clarity matters more than more decks. We do not try to be everything to everyone. That way lies both madness and very long websites.</p>
 
       <div class="grid cards" role="list">
-        <details class="card" role="listitem">
+        <details class="card service-card" role="listitem">
           <summary><span class="sum-title">Strategy &amp; Positioning</span><span class="caret">▾</span></summary>
           <div class="card-body">
             <p>Clarify what you are, who you are for, and why the market should care now.</p>
@@ -317,7 +317,7 @@
           </div>
         </details>
 
-        <details class="card" role="listitem">
+        <details class="card service-card" role="listitem">
           <summary><span class="sum-title">Product &amp; Customer Insight</span><span class="caret">▾</span></summary>
           <div class="card-body">
             <p>Find the disconnect between what the product does, what users feel, and what buyers understand.</p>
@@ -329,7 +329,7 @@
           </div>
         </details>
 
-        <details class="card" role="listitem">
+        <details class="card service-card" role="listitem">
           <summary><span class="sum-title">Brand, Content &amp; Narrative</span><span class="caret">▾</span></summary>
           <div class="card-body">
             <p>Turn scattered strengths into a coherent story that can travel across a website, pitch, campaign, or conversation.</p>
@@ -341,7 +341,7 @@
           </div>
         </details>
 
-        <details class="card" role="listitem">
+        <details class="card service-card" role="listitem">
           <summary><span class="sum-title">Founder &amp; Team Advisory</span><span class="caret">▾</span></summary>
           <div class="card-body">
             <p>A thinking partner for founders and leadership teams facing ambiguous decisions, competing advice, or strategic drift.</p>
@@ -353,7 +353,7 @@
           </div>
         </details>
 
-        <details class="card" role="listitem">
+        <details class="card service-card" role="listitem">
           <summary><span class="sum-title">Commercial Clarity</span><span class="caret">▾</span></summary>
           <div class="card-body">
             <p>When useful, we pressure-test the practical business logic behind a strategy—pricing, packaging, buyer friction, and the story a plan tells.</p>
@@ -361,7 +361,7 @@
           </div>
         </details>
 
-        <details class="card" role="listitem">
+        <details class="card service-card" role="listitem">
           <summary><span class="sum-title">Creative &amp; IP Development</span><span class="caret">▾</span></summary>
           <div class="card-body">
             <p>Shape ideas, formats, and intellectual property into sharper concepts with stronger audience logic.</p>
@@ -403,7 +403,9 @@
       <div class="team-bios">
         <div class="bio">
           <h3>David S. Sherman, Ph.D. — Founder &amp; Managing Partner</h3>
-          <p>David is an entrepreneur, strategist, educator, and licensed psychotherapist. His work spans educational media, SaaS, psychology, product design, and creative development. He co-founded Criteria Corp, served as COO until 2024, and continues to serve on its Board of Directors.</p>
+          <p>David is an entrepreneur, strategist, educator, and licensed psychotherapist. His work spans educational media, SaaS, psychology, product design, and creative development.</p>
+          <p>In the early 1980s, David was Principal and Co-President of <strong>AIMS Media</strong> with his brothers, where he helped modernize its 16mm film and filmstrip library into <strong>AIMS Multimedia</strong>, a pioneer in educational technology. He later spearheaded the development of <strong>DigitalCurriculum</strong>, an early interactive streaming video-on-demand service for education, which served more than 20 million students when it was acquired by <strong>Discovery Communications, Inc.</strong> in 2004.</p>
+          <p>After a brief retirement, David co-founded <strong><a href="https://www.criteriacorp.com" target="_blank" rel="noopener">Criteria Corp</a></strong>, a SaaS talent assessment platform, where he served as COO until 2024. He continues to serve on Criteria’s Board of Directors.</p>
           <p>At ParallaX Views, David applies structured multi-angle analysis to help founders and teams clarify strategy, product, narrative, and decision-making.</p>
           <ul>
             <li><strong>Focus:</strong> strategy, product/UX counsel, founder advisory, board preparation</li>
@@ -493,6 +495,23 @@
   </footer>
 
   <script>
+    (function () {
+      const serviceCards = Array.from(document.querySelectorAll('#services details.service-card'));
+      let syncing = false;
+
+      serviceCards.forEach(card => {
+        card.addEventListener('toggle', function () {
+          if (syncing) return;
+          syncing = true;
+          const shouldOpen = card.open;
+          serviceCards.forEach(otherCard => {
+            otherCard.open = shouldOpen;
+          });
+          syncing = false;
+        });
+      });
+    })();
+
     (function() {
       if ('scrollBehavior' in document.documentElement.style) return;
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
