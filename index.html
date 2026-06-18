@@ -397,14 +397,36 @@
     </div>
   </section>
 
-  <p>David is an entrepreneur, strategist, educator, and licensed psychotherapist whose work spans SaaS, educational media, psychology, product design, and creative development.</p>
+  <section id="team">
+    <div class="container">
+      <h2 class="section-title">Team</h2>
+      <div class="team-bios">
+        <div class="bio">
+          <h3>David S. Sherman, Ph.D. — Founder &amp; Managing Partner</h3>
+          <p>David is an entrepreneur, strategist, educator, and licensed psychotherapist whose work spans SaaS, educational media, psychology, product design, and creative development.</p>
+          <p>Enticed out of retirement by a startup SaaS business idea for online employee assessments, David became the co-founder and COO/CFO of <strong><a href="https://www.criteriacorp.com" target="_blank" rel="noopener">Criteria Corp</a></strong>, a web-based pre-employment testing business built on a Software as a Service model he had helped pioneer in educational media. <strong>Criteria</strong> has since grown into a talent signal platform that helps organizations look beyond resumes through scientifically validated assessments, structured and video interviewing, and employee development tools. Today, its platform is used by over 4,500 organizations worldwide, with more than 80 million assessments delivered across 60 countries and 25+ languages. David retired from Criteria Corp in July 2024 but continues to serve on its Board of Directors.</p>
+          <p>Before Criteria, David was Principal and Co-President of <strong>AIMS Media</strong> with his brothers, where he helped modernize its 16mm film and filmstrip library into <strong>AIMS Multimedia</strong>, a pioneer in educational technology. He later spearheaded the development of <strong>DigitalCurriculum</strong>, an early interactive streaming video-on-demand service for education, which served more than 20 million students when it was acquired by <strong>Discovery Communications, Inc.</strong> in 2004.</p>
+          <p>At <strong>ParallaX Views</strong>, David applies structured multi-angle analysis to help founders and teams clarify strategy, product, narrative, and decision-making.</p>
+          <ul>
+            <li><strong>Focus:</strong> strategy, product/UX counsel, founder advisory, board preparation</li>
+            <li><strong>Also:</strong> author of <em><a href="https://www.aquestionofbalance.com" target="_blank" rel="noopener">A Question of Balance</a></em></li>
+          </ul>
+        </div>
 
-<p>Enticed out of retirement by a startup SaaS business idea for online employee assessments, David became the co-founder and COO/CFO of <strong><a href="https://www.criteriacorp.com" target="_blank" rel="noopener">Criteria Corp</a></strong>, a web-based pre-employment testing business built on a Software as a Service model he had helped pioneer in educational media. <strong>Criteria</strong> has since grown into a talent signal platform that helps organizations look beyond resumes through scientifically validated assessments, structured and video interviewing, and employee development tools. Today, its platform is used by over 4,500 organizations worldwide, with more than 80 million assessments delivered across 60 countries and 25+ languages. David retired from Criteria Corp in July 2024 but continues to serve on its Board of Directors.</p>
-
-<p>Before Criteria, David was Principal and Co-President of <strong>AIMS Media</strong> with his brothers, where he helped modernize its 16mm film and filmstrip library into <strong>AIMS Multimedia</strong>, a pioneer in educational technology. He later spearheaded the development of <strong>DigitalCurriculum</strong>, an early interactive streaming video-on-demand service for education, which served more than 20 million students when it was acquired by <strong>Discovery Communications, Inc.</strong> in 2004.</p>
-
-<p>At <strong>ParallaX Views</strong>, David applies structured multi-angle analysis to help founders and teams clarify strategy, product, narrative, and decision-making.</p>
-
+        <div class="bio">
+          <h3>Drew Sherman — Partner, Brand Strategy &amp; Growth Marketing</h3>
+          <p>Drew is a brand and growth marketing leader with more than 15 years of experience helping companies clarify their story, build demand, and turn strategy into campaigns that move audiences. He currently serves as Senior Vice President, Brand Strategy &amp; Growth Marketing at <strong>RPM</strong>, where his work spans brand architecture, growth strategy, content, demand generation, and integrated marketing across North America and Europe.</p>
+          <p>Before RPM, Drew held senior marketing, content, and creative roles across technology, entertainment, healthcare, logistics, and digital media, with experience at or for companies including <strong>Accenture</strong>, <strong>HP</strong>, <strong>Huge</strong>, <strong>MOCEAN</strong>, <strong>WONGDOODY</strong>, <strong>AvatarLabs</strong>, <strong>Omelet</strong>, and others. His work brings together brand strategy, creative development, full-funnel marketing, social and content strategy, SEO/SEM, and performance analytics.</p>
+          <p>At <strong>ParallaX Views</strong>, Drew helps clients sharpen positioning, develop clearer narratives, build go-to-market plans, and translate strategic insight into marketing that feels both distinctive and useful.</p>
+          <ul>
+            <li><strong>Focus:</strong> brand strategy, growth marketing, GTM, content, SEO/SEM, social, analytics, campaign development</li>
+            <li><strong>Background:</strong> entertainment, technology, logistics, healthcare, SaaS, and digital media</li>
+            <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/drewsherman-cd/" target="_blank" rel="noopener">View profile</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <section id="contact">
     <div class="container">
@@ -477,17 +499,17 @@
   <script>
     (function () {
       const serviceCards = Array.from(document.querySelectorAll('#services details.service-card'));
-      let syncing = false;
 
       serviceCards.forEach(card => {
-        card.addEventListener('toggle', function () {
-          if (syncing) return;
-          syncing = true;
-          const shouldOpen = card.open;
+        const summary = card.querySelector('summary');
+        if (!summary) return;
+
+        summary.addEventListener('click', function (event) {
+          event.preventDefault();
+          const shouldOpen = !card.open;
           serviceCards.forEach(otherCard => {
             otherCard.open = shouldOpen;
           });
-          syncing = false;
         });
       });
     })();
